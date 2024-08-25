@@ -1,1 +1,26 @@
-<p>single-post works!</p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Post Details</h1>
+            <button type="button" class="btn btn-success mt-2 mb-3" routerLink="['/posts']" (click)="onBack()">
+                Back to Posts
+            </button>
+        </div>
+        <div class="card-body">
+            <div class="row" *ngIf="post as postData">
+                <div class="col-md-6">
+                    <label>Id</label>
+                    <span class="value">{{ postData.id }}</span>
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <span class="value">{{ postData.title }}</span>
+                </div>
+                <div class="form-group">
+                    <label> Description</label>
+                    <span class="value">{{ postData.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
