@@ -3,6 +3,7 @@ import { DefaultDataService, HttpUrlGenerator } from "@ngrx/data";
 import { Post } from "./models/post.model";
 import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
+import { Update } from "@ngrx/entity";
 
 @Injectable()
 
@@ -36,5 +37,10 @@ export class PostsDataService extends DefaultDataService<Post> {
                     return { ...post, id: data.name }
                 })
             )
+    }
+
+    override update(post: Update<Post>): Observable<Post> {
+        return this.http
+            .put<Post>(`https://all-about-ngrs-default-rtdb.firebaseio.com/posts/${post.id}.json`, { ...post.changes })
     }
 }

@@ -1,1 +1,26 @@
-<p>edit-post works!</p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Edit Post</h1>
+        </div>
+        <div class="card-body">
+            <form [formGroup] = "postForm" (ngSubmit)="onUpdatePost()" class="noEdit">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" formControlName="title">
+                    <div class="text-danger">{{ showTitleErrors() }}</div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" formControlName="description"></textarea>
+                    <div class="text-danger">{{ showDescriptionErrors() }}</div>
+                </div>
+
+                <div class="buttons text-end d-flex">
+                    <button type="button" class="btn btn-secondary mx-2" (click)="onBack()">Back</button>
+                    <button type="submit" class="btn btn-primary mx-2" [disabled]="!postForm.valid">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

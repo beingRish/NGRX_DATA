@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/models/post.model';
 import { PostService } from '../post.service';
-import { PostsDataService } from 'src/app/posts-data.service';
 
 @Component({
   selector: 'app-add-post',
