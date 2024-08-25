@@ -1,1 +1,52 @@
-<p>posts-list works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Posts List</h1>
+                    <button type="button" class="btn btn-success mt-2 mb-3">
+                        <a [routerLink]="['/posts/add']">
+                            <i class="fa fa-add" aria-hidden="true"></i>
+                            Add Post</a>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="table-responsive">
+                            <div class="col-md-12">
+                                <table class="table table-striped" *ngIf="posts$ | async as postsData">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+            
+                                    <tbody>
+                                        <tr *ngFor="let post of postsData">
+                                            <td>{{ post.id }}</td>
+                                            <td> {{ post.title }}</td>
+                                            <td> {{ post.description }}</td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <button class="btn btn-primary" [routerLink]="['/posts/edit', post.id]">Update</button>&nbsp;
+                                                    <button class="btn btn-danger">Delete</button>&nbsp;
+                                                    <button class="btn btn-info" [routerLink]="['details', post.id]">Details</button>&nbsp;
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
