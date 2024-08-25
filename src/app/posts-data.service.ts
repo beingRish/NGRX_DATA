@@ -27,4 +27,14 @@ export class PostsDataService extends DefaultDataService<Post> {
                 })
             );
     }
+
+    override add(post: Post): Observable<Post> {
+        return this.http
+            .post<{ name: string }>(`https://all-about-ngrs-default-rtdb.firebaseio.com/posts.json`, post)
+            .pipe(
+                map(data => {
+                    return { ...post, id: data.name }
+                })
+            )
+    }
 }

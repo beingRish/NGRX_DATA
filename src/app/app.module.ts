@@ -16,6 +16,7 @@ import { entityConfig } from './entitly-metadata';
 import { HttpClientModule } from '@angular/common/http';
 import { PostsDataService } from './posts-data.service';
 import { PostsResolver } from './post.resolver';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PostsResolver } from './post.resolver';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
       logOnly: !isDevMode(),

@@ -1,9 +1,5 @@
 import { Injectable } from "@angular/core";
-import {
-    ActivatedRouteSnapshot,
-    Resolve,
-    RouterStateSnapshot
-} from "@angular/router";
+import { Resolve } from "@angular/router";
 
 import {
     first,
@@ -11,7 +7,7 @@ import {
     tap
 } from "rxjs";
 
-import { PostService } from "./posts/post..service";
+import { PostService } from "./posts/post.service";
 
 @Injectable()
 
